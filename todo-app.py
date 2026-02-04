@@ -21,12 +21,19 @@ def add_task():
         print(f"An error has occurred: {e}")
 
 def view_task():
-    if len(task) == 0:
+    try: 
+        if len(task) == 0:
+            raise IndexError
+        else:
+            print("Your to-do list:")
+            for i in range(len(task)):
+                print(f"{i+1}. {task[i]}")
+    
+    except IndexError:
         print("Your to-do list is empty.")
-    else:
-        print("Your to-do list:")
-        for i in range(len(task)):
-            print(f"{i+1}. {task[i]}")
+
+    finally: 
+        print("Task viewing complete.")
 
 def delete_task():
     for i, item in enumerate(task, 1):
