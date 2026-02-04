@@ -9,10 +9,16 @@ def display_menu():
     print("4. Exit")
 
 def add_task():
-    new_task = input("What would you like ot add to your to-do list?")
-    task.append(new_task)
-    print(f"{new_task} has been added to your to-do list.")
-    print(task)
+
+    try:
+
+        new_task = input("What would you like ot add to your to-do list?")
+        task.append(new_task)
+        print(f"{new_task} has been added to your to-do list.")
+        print(task)
+
+    except Exception as e: 
+        print(f"An error has occurred: {e}")
 
 def view_task():
     if len(task) == 0:
