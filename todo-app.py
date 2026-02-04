@@ -43,4 +43,20 @@ def delete_task():
     finally:
         print("Task deletion attempt complete.")
     
-    
+def main():
+    while True:
+        display_menu()
+        choice = input("What would you like to do? (1-4): ")
+
+        if choice == '1':
+            add_task()
+        elif choice == '2':
+            view_task()
+        elif choice == '3':
+            delete_task()
+        elif choice == '4':
+            break
+        else: 
+            print("Invalid choice. Please select a number between 1 and 4.")
+
+main()
