@@ -22,4 +22,25 @@ def view_task():
         for i in range(len(task)):
             print(f"{i+1}. {task[i]}")
 
+def delete_task():
+    for i, item in enumerate(task, 1):
+        print(f"{i}. {item}")
 
+    try:
+        selection = int(input("Which task do you want to delete? "))
+        if selection < 1 or selection > len(task):
+            raise IndexError
+        else:
+            task.pop(selection - 1)
+            print(task)
+    
+    except ValueError:
+        print("Please enter a valid number.")
+
+    except IndexError:
+        print("That task number does not exist.")
+
+    finally:
+        print("Task deletion attempt complete.")
+    
+    
